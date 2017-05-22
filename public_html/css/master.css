@@ -10,59 +10,219 @@ and open the template in the editor.
 /**
  * Trapezoid tabs
  */
-body {
-  padding: 40px;
-  font: 130%/2 Frutiger LT Std, sans-serif; }
+html {
+  height: 100%; }
 
-nav {
+body {
+  padding: 0px;
+  font: 130%/2 Frutiger LT Std, sans-serif;
+  margin: 0px;
+  min-height: 100%; }
+
+.navigat {
   position: relative;
   z-index: 1;
-  padding-left: 1em; }
+  text-align: right;
+  overflow: hidden; }
 
-nav > a {
+.navigat > a {
   position: relative;
   display: inline-block;
-  padding: 0px 20px 0;
-  color: inherit;
+  padding: 10px 15px 0;
+  color: #999999;
   text-decoration: none;
   margin: 0 -5.4px;
-  font-size: 18px; }
+  font-size: 13px;
+  width: 110px;
+  text-align: center;
+  white-space: nowrap; }
+  .navigat > a i {
+    margin-right: 5px; }
+  .navigat > a.close-button {
+    width: 40px;
+    padding: 5px 10px 0px;
+    font-size: 16px;
+    color: #fff; }
+    .navigat > a.close-button:before {
+      transform: scale(1.1, 1.3) perspective(0.5em) rotateX(0deg);
+      height: 24px;
+      margin-top: 6.5px;
+      box-shadow: none;
+      background: #555555;
+      z-index: -2;
+      border-radius: 0px;
+      margin-left: -1px;
+      border: 1px solid #555555; }
+  .navigat > a:hover, .navigat > a:active, .navigat > a:focus {
+    color: #999999;
+    text-decoration: none; }
+  .navigat > a:before {
+    content: '';
+    /* To generate the box */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border: 1px solid #999999;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    background: #d5d5d5;
+    transform: scale(1.1, 1.3) perspective(0.5em) rotateX(4deg);
+    transform-origin: bottom;
+    /*box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.16);*/
+    margin-bottom: -3.44px; }
+  .navigat > a.selected {
+    z-index: 2; }
+    .navigat > a.selected:before {
+      background-color: #eee;
+      /*margin-bottom: -1.44px;*/ }
 
-main div {
-  display: none; }
+.main {
+  display: block;
+  background: #eee;
+  border-radius: 3px;
+  position: relative;
+  margin-top: 0;
+  box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.34); }
+  .main .data {
+    display: none; }
+    .main .data.in {
+      display: block; }
 
-main div.in {
-  display: block; }
-
-nav a::before {
-  content: '';
-  /* To generate the box */
+.widget {
   position: absolute;
-  top: 0;
-  right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
-  border-bottom: none;
-  border-radius: 3px 3px 0 0;
-  background: #ccc;
-  transform: scale(1.1, 1.3) perspective(0.5em) rotateX(5deg);
-  transform-origin: bottom;
-  box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.26);
-  margin-bottom: -3.44px; }
+  right: 0; }
 
-nav a.selected {
-  z-index: 2; }
-
-nav a.selected::before {
-  background-color: #eee;
-  /*margin-bottom: -1.44px;*/ }
-
-main {
-  display: block;
-  margin-bottom: 20px;
+.maximize {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
   background: #eee;
-  padding: 20px;
-  border-radius: 3px; }
+  color: #999;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #999; }
+  .maximize:hover {
+    color: #676767;
+    text-decoration: none; }
+
+.btn {
+  font-size: 13px !important;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.29);
+  padding: 5px 15px !important; }
+  .btn i {
+    margin-right: 5px; }
+  .btn.btn-default {
+    background: #fff;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#fff, #eee);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#fff, #eee);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#fff, #eee);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#fff, #eee);
+    /* Standard syntax */ }
+
+h3 {
+  color: #000; }
+
+.center-align {
+  text-align: center; }
+
+.w-4 {
+  width: 33.33333333%; }
+
+.w-8 {
+  width: 66.66666667%; }
+
+.table {
+  margin-bottom: 0px !important; }
+  .table td {
+    padding: 25px !important;
+    vertical-align: middle !important; }
+    .table td:first-child {
+      border-right: 1px solid #999; }
+    .table td:last-child {
+      padding-right: 13% !important; }
+
+.search {
+  position: relative; }
+  .search i {
+    position: absolute;
+    top: 12px;
+    left: 10px; }
+  .search input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #999;
+    border-radius: 20px;
+    padding: 8px 15px;
+    padding-left: 29px;
+    transition: 500ms;
+    -webkit-transition: 500ms; }
+    .search input:focus {
+      outline: none;
+      border-color: #3a82bd;
+      box-shadow: 0px 0px 8px #3a82bd;
+      background: #fff; }
+
+.faq-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 20px; }
+  .faq-list li {
+    display: inline-block;
+    margin: 0px -2px;
+    width: 33.33333333%;
+    text-align: center;
+    padding: 10px; }
+    .faq-list li a {
+      font-size: 16px;
+      color: #3a82bd;
+      display: inline-block;
+      width: 100%;
+      padding: 20px 10px;
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+      transition: all 500ms ease; }
+      .faq-list li a span {
+        position: relative;
+        z-index: 2;
+        white-space: nowrap; }
+      .faq-list li a i {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #3a82bd;
+        border-radius: 50%;
+        padding-top: 6px;
+        margin-bottom: 10px; }
+      .faq-list li a:hover {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-decoration: none;
+        /*background: #fff;*/ }
+      .faq-list li a:after {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 0px;
+        background: white;
+        border-radius: 5px;
+        transition: all 500ms ease;
+        z-index: 1;
+        opacity: 0; }
+      .faq-list li a:hover:after {
+        height: 104px;
+        opacity: 1; }
 
 /*# sourceMappingURL=master.css.map */

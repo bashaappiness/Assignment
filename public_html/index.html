@@ -10,28 +10,76 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/master.css" />
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
         <link rel="icon" href="images/favicon.png" type="images/png" />
     </head>
     <body>
-        <nav>
-            <a href="#" class="selected" data-target="home">Home</a>
-            <a href="#"  data-target="project">Projects</a>
-            <a href="#" data-target="about">About</a>
-            <a href="#" data-target="contact">Contact</a>
-        </nav>
-        <main>
-            <div id="home" class="in">Home</div>
-            <div id="project">Project</div>
-            <div id="about">About</div>
-        </main>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <div class="widget" style="display: none">
+            <div class="navigat">
+                <a href="#" data-target="live"><i class="fa fa-comment" aria-hidden="true"></i>Live Chat</a>
+                <a href="#" class="selected"  data-target="faq"><i class="fa fa-search" aria-hidden="true"></i>FAQ</a>
+                <a href="#" data-target="mail"><i class="fa fa-envelope-o" aria-hidden="true"></i>Mail Us</a>
+                <a href="#" class="close-button"><i class="fa fa-close" aria-hidden="true"></i></a>
+            </div>
+            <div class="main">
+                <div id="live" class="data" >Live chat</div>
+                <div id="faq" class="data in">
+                    <div class="container-fluid">
+                        
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td class="w-4 center-align">
+                                        <h4>Prefer email instead?</h4>
+                                        <br />
+                                        <button class="btn btn-default"><i class="fa fa-envelope-o" aria-hidden="true"></i>Write to us</button>
+                                        <br />
+                                        <br />
+                                        <p>We are super quick in responding to your queries</p>
+                                    </td>
+                                    <td class="w-8">
+                                        <div class="search">
+                                            <input type="text" placeholder="What can we help you with? Start typing your question..." />
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </div>
+                                        <ul class="faq-list">
+                                            <li><a href="#"><span><i class="fa fa-folder" aria-hidden="true"></i><br>Sharing Openings</span></a></li>
+                                            <li><a href="#"><span><i class="fa fa-thumb-tack" aria-hidden="true"></i><br>Managing Openings </span></a></li>
+                                            <li><a href="#"><span><i class="fa fa-user" aria-hidden="true"></i><br>Managing Candidates</span></a></li>
+                                            <li><a href="#"><span><i class="fa fa-gear" aria-hidden="true"></i><br>Account Management</span></a></li>
+                                            <li><a href="#"><span><i class="fa fa-folder" aria-hidden="true"></i><br>Sourcing Candidates</span></a></li>
+                                            <li><a href="#"><span><i class="fa fa-bar-chart" aria-hidden="true"></i><br>Reporting</span></a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="mail" class="data">Mail</div>
+            </div>
+        </div>
+        <a href="#" class="maximize"><i class="fa fa-window-restore" aria-hidden="true"></i> Widget</a>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
         <script type="text/javascript">
-            $('nav a').click(function () {
-                $('nav a').removeClass('selected');
-                $(this).addClass('selected');
-                var d_id = $(this).attr('data-target');
-                $('main div').hide();
-                $('#' + d_id).show();
+
+            $('.navigat a').click(function () {
+                if ($(this).hasClass('close-button')) {
+                    $('.widget').slideUp();
+                    $('.maximize').slideDown();
+                } else {
+                    $('.navigat a').removeClass('selected');
+                    $(this).addClass('selected');
+                    var d_id = $(this).attr('data-target');
+                    $('.main .data').hide();
+                    $('#' + d_id).show();
+                }
+            });
+
+            $('.maximize').click(function () {
+                $('.widget').slideDown();
+                $('.maximize').slideUp();
             });
         </script>
     </body>

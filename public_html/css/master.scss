@@ -10,65 +10,242 @@ and open the template in the editor.
 /**
  * Trapezoid tabs
  */
-
+html{
+    height: 100%;
+}
 body {
-    padding: 40px;
+    padding: 0px;
     font: 130%/2 Frutiger LT Std, sans-serif;
+    margin: 0px;
+    min-height: 100%;
 }
 
-nav {
+.navigat {
     position: relative;
     z-index: 1;
-    padding-left: 1em;
+    text-align: right;
+    overflow: hidden;
 }
 
-nav > a {
+.navigat > a {
     position: relative;
     display: inline-block;
-    padding: 0px 20px 0;
-    color: inherit;
+    padding: 10px 15px 0;
+    color: #999999;
     text-decoration: none;
     margin: 0 -5.4px;
-    font-size: 18px;
+    font-size: 13px;
+    width: 110px;
+    text-align: center;
+    white-space: nowrap;
+
+    i{
+        margin-right: 5px;
+    }
+    &.close-button {
+        width: 40px;
+        padding: 5px 10px 0px;
+        font-size: 16px;
+        color: #fff;
+        &:before{
+            transform: scale(1.1, 1.3) perspective(0.5em) rotateX(0deg);
+            height: 24px;
+            margin-top: 6.5px;
+            box-shadow: none;
+            background: #555555;
+            z-index: -2;
+            border-radius: 0px;
+            margin-left: -1px;
+            border: 1px solid #555555;
+        }
+    }
+    &:hover, &:active, &:focus{
+        color: #999999;
+        text-decoration: none;
+
+    }
+    &:before {
+        content: ''; /* To generate the box */
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: -1;
+        border: 1px solid #999999;
+        border-bottom: none;
+        border-radius: 4px 4px 0 0;
+        background: #d5d5d5;
+        transform: scale(1.1, 1.3) perspective(.5em) rotateX(4deg);
+        transform-origin: bottom;
+        /*box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.16);*/
+        margin-bottom: -3.44px;
+    }
+    &.selected {
+        z-index: 2;
+        &:before {
+            background-color: #eee;
+            /*margin-bottom: -1.44px;*/
+        }
+
+    }
 } 
-
-nav > a::before,
-main {
+.main {
     // border: .1em solid rgba(0,0,0,.4);
-}
-main div{
-    display: none;
-}
-main div.in{
     display: block;
-}
-nav a::before {
-    content: ''; /* To generate the box */
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    z-index: -1;
-    border-bottom: none;
-    border-radius: 3px 3px 0 0;
-    background: #ccc;
-    transform: scale(1.1, 1.3) perspective(.5em) rotateX(5deg);
-    transform-origin: bottom;
-    box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.26);
-    margin-bottom: -3.44px;
-}
-
-nav a.selected { z-index: 2;}
-
-nav a.selected::before {
-    background-color: #eee;
-    /*margin-bottom: -1.44px;*/
-}
-
-main {
-    display: block;
-    margin-bottom: 20px;
     background: #eee;
-    padding: 20px;
     border-radius: 3px;
+    position: relative;
+    margin-top: 0;
+    box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.34);
+    .data{
+        display: none;
+        &.in{
+            display: block;
+        }
+    }
 }
-
-
+.widget{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.maximize {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    background: #eee;
+    color: #999;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #999;
+    &:hover{
+        color: #999 - 50;
+        text-decoration: none;
+    }
+}
+.btn{
+    font-size: 13px !important;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.29);
+    padding: 5px 15px !important;
+    i{
+        margin-right: 5px;
+    }
+    &.btn-default{
+        background: #fff; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#fff, #eee); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#fff, #eee); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#fff, #eee); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#fff, #eee); /* Standard syntax */
+    }
+}
+h3{
+    color: #000;
+}
+.center-align{
+    text-align: center;
+}
+.w-4{
+    width: 33.33333333%;
+}
+.w-8{
+    width: 66.66666667%;
+}
+.table{
+    margin-bottom: 0px !important;
+    td{
+        padding: 25px !important;
+        vertical-align: middle !important;
+        &:first-child{
+            border-right: 1px solid #999;
+        }
+        &:last-child{
+            padding-right: 13% !important;
+        }
+    }
+}
+.search{
+    position: relative;
+    i{
+        position: absolute;
+        top:12px;
+        left: 10px;
+    }
+    input{
+        width: 100%;
+        background: transparent;
+        border: 1px solid #999;
+        border-radius: 20px;
+        padding: 8px 15px;
+        padding-left: 29px;
+        transition: 500ms;
+        -webkit-transition: 500ms;
+        &:focus{
+            outline: none;
+            border-color: #3a82bd;
+            box-shadow: 0px 0px 8px #3a82bd;
+            background: #fff;
+        }
+    }
+}
+.faq-list{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    li{
+        display: inline-block;
+        margin: 0px -2px;
+        width: 33.33333333%;
+        text-align: center;
+        padding: 10px;
+        a{
+            font-size: 16px;
+            color: #3a82bd;
+            display: inline-block;
+            width: 100%;
+            padding: 20px 10px;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            transition: all 500ms ease;
+            span{
+                position: relative;
+                z-index: 2;
+                white-space: nowrap;
+            }
+            i{
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                border: 1px solid #3a82bd;
+                border-radius: 50%;
+                padding-top: 6px;
+                margin-bottom: 10px;
+            }
+            &:hover{
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-decoration: none;
+                /*background: #fff;*/
+            }
+            &:after {
+                content:'';
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 0px;
+                background: rgba(255,255,255,1);
+                border-radius: 5px;
+                transition: all 500ms ease;
+                z-index: 1;
+                opacity: 0;
+            }
+            &:hover {
+                &:after {
+                    height: 104px;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
