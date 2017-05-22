@@ -23,7 +23,21 @@ and open the template in the editor.
                 <a href="#" class="close-button"><i class="fa fa-close" aria-hidden="true"></i></a>
             </div>
             <div class="main">
-                <div id="live" class="data" >Live chat</div>
+                <div id="live" class="data" >
+                    <div class="chat">
+                        <p class="sent"><span class="indicator"></span><span class="message">Hi</span></p>
+                        <p class="received"><span class="indicator"></span><span class="message">Hello, Welcome to recruiterbox!</span></p>
+                        <p class="sent"><span class="indicator"></span><span class="message">I have one doubt</span></p>
+                        <p class="received"><span class="indicator"></span><span class="message">Please tell us, we are here to help you</span></p>
+                        <p class="sent"><span class="indicator"></span><span class="message">Lorem Ipsum is simply dummy text of the printing</span></p>
+                        <p class="received"><span class="indicator"></span><span class="message">Lorem Ipsum is simply dummy text of the printing</span></p>
+                        <p class="sent"><span class="indicator"></span><span class="message">Lorem Ipsum is simply dummy text of the printing</span></p>
+                    </div>
+                    <div class="send">
+                        <input type="text" placeholder="Type your message..."/>
+                        <a href="#" class="blue-button"><i class="fa fa-send"></i></a>
+                    </div>
+                </div>
                 <div id="faq" class="data in">
                     <div class="container-fluid">
                         
@@ -57,7 +71,33 @@ and open the template in the editor.
                         </div>
                     </div>
                 </div>
-                <div id="mail" class="data">Mail</div>
+                <div id="mail" class="data">
+                    <form  id="mail-us">
+                        <div class="alert alert-success" style="display: none" role="alert"><b><i class="fa fa-check"></i></b> Message sent! Thanks for reaching out! Someone from our team will get back to you soon.</div>
+                        <div class="form-group email">
+                            <label for="email">To</label>
+                            <input type="email" disabled value="support@reqruiterbox.com" name="email" id="email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" name="subject" id="subject" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Message" placeholder="Message" id="message" cols="30" rows="5" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6 attachment ">
+                                    <label for="attachment"><i class="fa fa-paperclip"></i>Attach file</label>
+                                    <input type="file" id="attachment"/>
+                                </div>
+                                <div class="col-sm-6 right-align">
+                                    <input type="submit" name="submit" value="Send Mail" class="blue-button" id="submit" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
             </div>
         </div>
         <a href="#" class="maximize"><i class="fa fa-window-restore" aria-hidden="true"></i> Widget</a>
@@ -80,6 +120,9 @@ and open the template in the editor.
             $('.maximize').click(function () {
                 $('.widget').slideDown();
                 $('.maximize').slideUp();
+            });
+            $('#mail-us').submit(function(){
+                $('.alert').slideDown();
             });
         </script>
     </body>

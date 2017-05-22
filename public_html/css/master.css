@@ -17,7 +17,8 @@ body {
   padding: 0px;
   font: 130%/2 Frutiger LT Std, sans-serif;
   margin: 0px;
-  min-height: 100%; }
+  min-height: 100%;
+  background: #16b1cd !important; }
 
 .navigat {
   position: relative;
@@ -79,17 +80,20 @@ body {
       background-color: #eee;
       /*margin-bottom: -1.44px;*/ }
 
-.main {
-  display: block;
+.main .data {
   background: #eee;
   border-radius: 3px;
   position: relative;
   margin-top: 0;
-  box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.34); }
-  .main .data {
-    display: none; }
-    .main .data.in {
-      display: block; }
+  box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.34);
+  display: none;
+  min-height: 100px;
+  width: 50%;
+  float: right; }
+  .main .data#faq {
+    width: 100%; }
+  .main .data.in {
+    display: block; }
 
 .widget {
   position: absolute;
@@ -101,11 +105,12 @@ body {
   position: absolute;
   bottom: 5px;
   right: 10px;
-  background: #eee;
+  background: #2b2b2b;
   color: #999;
-  padding: 5px 10px;
+  padding: 10px 30px;
   border-radius: 4px;
-  border: 1px solid #999; }
+  border: 1px solid #999;
+  font-size: 16px; }
   .maximize:hover {
     color: #676767;
     text-decoration: none; }
@@ -133,6 +138,12 @@ h3 {
 
 .center-align {
   text-align: center; }
+
+.right-align {
+  text-align: right; }
+
+.left-align {
+  text-align: left; }
 
 .w-4 {
   width: 33.33333333%; }
@@ -224,5 +235,74 @@ h3 {
       .faq-list li a:hover:after {
         height: 104px;
         opacity: 1; }
+
+#mail {
+  padding: 25px; }
+  #mail .form-control[disabled] {
+    background: #d5d5d5; }
+  #mail .form-control {
+    border-radius: 3px; }
+  #mail .form-group.email {
+    position: relative; }
+    #mail .form-group.email label {
+      position: absolute;
+      top: 7px;
+      left: 10px; }
+    #mail .form-group.email input {
+      padding-left: 35px; }
+  #mail .form-group .attachment input {
+    opacity: 0;
+    height: 0;
+    width: 0; }
+  #mail .form-group .attachment label {
+    cursor: pointer;
+    font-weight: 100;
+    color: #3a82bd; }
+    #mail .form-group .attachment label i {
+      margin-right: 5px; }
+
+.blue-button {
+  border: 1px solid #2f516c;
+  color: #fff;
+  background: #3a82bd;
+  background: -webkit-linear-gradient(#3a82bd, #316388);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#3a82bd, #316388);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#3a82bd, #316388);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#3a82bd, #316388);
+  border-radius: 4px;
+  padding: 4px 15px; }
+
+#live {
+  padding: 25px; }
+  #live input {
+    width: calc(100% - 54px); }
+  #live .chat {
+    height: 200px;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1px solid #999;
+    overflow-y: auto; }
+    #live .chat .sent {
+      text-align: right;
+      padding: 5px 20px;
+      margin: 0; }
+      #live .chat .sent .message {
+        display: inline-block;
+        background: #d5d5d5;
+        padding: 4px 10px;
+        border-radius: 10px;
+        border-bottom-right-radius: 0px; }
+    #live .chat .received {
+      padding: 5px 20px;
+      margin: 0; }
+      #live .chat .received .message {
+        display: inline-block;
+        background: #eee;
+        padding: 4px 10px;
+        border-radius: 10px;
+        border-top-left-radius: 0px; }
 
 /*# sourceMappingURL=master.css.map */
